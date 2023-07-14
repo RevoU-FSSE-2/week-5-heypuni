@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -7,7 +8,6 @@ body {
     color: black;
     font-family: 'Lato', sans-serif;
     margin: 0;
-    scroll-behavior: smooth;
 }
 
 @font-face {
@@ -86,11 +86,15 @@ nav > span > img {
 }
 
 .navbar-menu > li > a {
-    font-family: Helvetica, sans-serif;
     color: #7a00da;
     font-weight: 400;
     text-decoration: none;
     font-size: 1rem;
+    font-weight: bold;
+}
+
+.navbar-menu > li > a:hover {
+    color: black;
 }
 
 #intro {
@@ -99,6 +103,9 @@ nav > span > img {
     text-align: start;
     flex-direction: row;
     padding-top: 5vh;
+    animation: animate-pop;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
 }
 
 h1 {
@@ -143,6 +150,19 @@ p {
 #intro-images img {
     width: 5vw;
     margin: 0 30px 0 30px;
+    
+}
+
+@keyframes animate-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.8, 0.8);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
 }
 
 h2 {
@@ -176,9 +196,22 @@ h2 {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media only screen and (max-width: 1225px) and (min-width: 768px) {
+    .intro-text > p {
+        width: auto;
+    }
     #intro {
+        margin-bottom: 10vw;
         padding-top: 10vh;
+    }
+    #intro img {
+        padding-right: 50px;
+        padding-left: 0;
+        padding-top: 30px;
+    }
+    .intro-text h1 {
+        font-size: 3rem;
+        margin-top: 100px;
     }
 }
 
@@ -207,6 +240,10 @@ h2 {
 .grid-img > img {
     width: 37vw;  
     margin-right: 100px;
+}
+
+.grid-img > img:hover {
+    transform: scale(1.1);
 }
 
 .grid-goal > article > p {
@@ -262,6 +299,29 @@ h2 {
         font-size: 1.5rem;
     }
 }
+
+@media only screen and (max-width: 975px) and (min-width: 768px) {
+    .grid-goal-txt {
+        width: 90%;
+        margin-left: 60px;
+    }
+    .grid-goal-txt-1 {
+        width: 90%;
+        margin-left: 60px;
+    }
+    .grid-goal-txt > h3 {
+        font-size: 2rem;
+    }
+    .grid-goal-txt-1 > h3 {
+        font-size: 2rem;
+    }
+    .grid-img img {
+        margin-right: 0;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
 
 #testimonial {
     background-color: #e2ddd8;
@@ -325,6 +385,11 @@ figure img {
     justify-content: center;
     text-align: center;
     padding: 10rem 3rem;
+    background-image: url(images/bg-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-shadow: 2px 2px black;
 }
 
 #extra-time h1 {
@@ -380,6 +445,7 @@ figure img {
 
 .mission-explain p {
     width: 50%;
+    margin-right: 5px;
 }
 
 hr {
@@ -439,4 +505,8 @@ hr {
     #features {
         margin: 20px;
     }
+}
+
+footer {
+    text-align: center;
 }
